@@ -1,0 +1,85 @@
+@import "../../styles/main.scss";
+
+.store-card {
+  display: flex;
+  margin-top: 20px;
+  box-shadow: 0px 1px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+  cursor: pointer;
+  
+  @media (max-width: $breakpoint-mobile) {
+    height: 125px;
+  }
+  @media (min-width: $breakpoint-mobile) {
+    height: 150px;
+  }
+}
+
+.store-title {
+  font-family: "Nunito-Bold" !important;
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 14px !important;
+  }
+  @media (min-width: $breakpoint-mobile) {
+    font-size: 20px !important;
+  }
+}
+
+.store-price {
+  font-family: "Nunito-Bold" !important;
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 12px !important;
+  }
+  @media (min-width: $breakpoint-mobile) {
+    font-size: 20px !important;
+  }
+}
+
+.store-thumb {
+  @media (max-width: $breakpoint-mobile) {
+    width: 86px;
+    height: 125px;
+  }
+  @media (min-width: $breakpoint-mobile) {
+    width: 123px;
+    height: 150px;
+  }
+}
+.store-location {
+  font-family: "Nunito-Regular" !important;
+  color: #808080;
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 12px !important;
+  }
+  @media (min-width: $breakpoint-mobile) {
+    font-size: 14px !important;
+  }
+}
+
+.store-property {
+  font-family: "Nunito-Regular" !important;
+  color: #808080;
+  margin-right: 20px !important;
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 11px !important;
+  }
+  @media (min-width: $breakpoint-mobile) {
+    font-size: 13px !important;
+  }
+}
+
+.store-rating {
+  font-family: "Nunito-Regular" !important;
+  color: #808080;
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 10px !important;
+  }
+  @media (min-width: $breakpoint-mobile) {
+    font-size: 13px !important;
+  }
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}

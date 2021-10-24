@@ -1,0 +1,60 @@
+@import "../../../styles/main.scss";
+
+.layout-background {
+  height: 150vh;
+  background-image: url(../../../assets/svg/bg-top.svg),
+    url(../../../assets/svg/bg-bottom.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: left top, right bottom;
+}
+
+.container {
+  display: inline-flex;
+}
+
+.signin-container {
+  border: 1px solid #d0ced1;
+  box-sizing: border-box;
+  border-radius: 10px 0px 0px 10px;
+  width: 450px;
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.signin-container h2 {
+  text-align: left;
+}
+
+.signwith-container {
+  border: 1px solid #d0ced1;
+  box-sizing: border-box;
+  border-radius: 0px 10px 10px 0px;
+  width: 450px;
+  margin-left: -1px;
+  padding: 50px;
+}
+
+.logo-section {
+  margin-top: 150px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.main-logo {
+  width: 166px;
+  height: 166px;
+  vertical-align: middle;
+}
+
+.signwith-container .logo-button {
+  font-family: "Nunito-Bold";
+  font-size: 16px;
+  color: white;
+  border-radius: 30px;
+  text-transform: none;
+  padding: 8px 20px 8px 20px;
+  width: 145px;
+  margin-bottom: 35px;
+}

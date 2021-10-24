@@ -1,0 +1,20 @@
+.highlight-wrap {
+  height: 6px;
+  display: flex;
+  justify-content: center;
+}
+
+.highlight {
+  width: 100%;
+  max-width: 100px;
+  border-radius: 6px;
+  background-color: #ffe403;
+}
+
+.active {
+  opacity: 1;
+}
+
+.deactive {
+  opacity: 0.3;
+}

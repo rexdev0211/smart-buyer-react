@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+  sb-web:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    container_name: sb-web
+    # environment:
+    #   ENV: dev
+
+    volumes:
+      - .:/sb-web
+    ports:
+      - 7004:3000
+    networks:
+      - smartbuyer_db
+    logging:
+      driver: json-file
+    stdin_open: true
+    # command: /bin/sh
+    # tty: true
+
+  sb-web-build:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    container_name: sb-web-build
+    volumes:
+      - .:/sb-web
+    command: >
+      sh -c "npm install
+      && npm run build"
+
+networks:
+  smartbuyer_db:
+    external:
+      name: smartbuyer_default

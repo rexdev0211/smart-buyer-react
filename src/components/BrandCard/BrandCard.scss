@@ -1,0 +1,45 @@
+@import "../../styles/main.scss";
+
+.brand-card {
+  margin: 20px 0px 20px 0px;
+}
+
+.brand-logo {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: $breakpoint-tablet) {
+    width: 165px;
+    height: 145px;
+  }
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    width: 120px;
+    height: 110px;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    width: 90px;
+    height: 80px;
+  }
+}
+
+.brand-title {
+  font-family: "Nunito-SemiBold" !important;
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 20px !important;
+    margin-top: 25px !important;
+  }
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    font-size: 18px !important;
+    margin-top: 18px !important;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 16px !important;
+    margin-top: 10px !important;
+  }
+}

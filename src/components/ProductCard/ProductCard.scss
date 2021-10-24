@@ -1,0 +1,105 @@
+@import "../../styles/main.scss";
+
+.product-card {
+  margin: 20px 0px 20px 0px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
+  @media (min-width: $breakpoint-tablet) {
+    width: 260px;
+    height: 310px;
+  }
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    width: 210px;
+    height: 280px;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    width: 160px;
+    height: 230px;
+  }
+}
+
+.product-thumb {
+  background-size: contain!important;
+  margin: auto;
+  margin-top: 12px;
+  @media (min-width: $breakpoint-tablet) {
+    height: 180px;
+    width: 180px;
+  }
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    height: 150px;
+    width: 150px;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    height: 100px;
+    width: 100px;
+  }
+}
+
+.product-title {
+  font-family: "Nunito-SemiBold" !important;
+  text-align: left;
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 16px !important;
+  }
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    font-size: 14px !important;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    white-space: break-spaces;
+    font-size: 14px !important;
+  }
+}
+
+.product-description {
+  font-family: "Nunito-Regular" !important;
+  text-align: left;
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 12px !important;
+  }
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    font-size: 10px !important;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 8px !important;
+  }
+}
+
+.product-price {
+  width: 100%;
+  text-align: right;
+  font-family: "Nunito-Regular" !important;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 18px !important;
+  }
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    font-size: 15px !important;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 14px !important;
+  }
+}
+
+.product-rating {
+  font-family: "Nunito-Regular" !important;
+  background-color: #ffe403;
+  padding: 2px 3px 2px 7px;
+  border-radius: 5px;
+
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 14px !important;
+  }
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    font-size: 12px !important;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 10px !important;
+  }
+}
+
+.rating-star {
+  vertical-align: top;
+  font-size: 14px !important;
+  padding: 3px 0 0 5px;
+}

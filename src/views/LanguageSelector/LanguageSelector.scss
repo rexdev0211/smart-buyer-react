@@ -1,0 +1,51 @@
+@import "../../styles/main.scss";
+
+.group-title {
+  font-family: "Nunito-SemiBold" !important;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 20px !important;
+  }
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 17px !important;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  text-align: left;
+
+  font-family: "Nunito-SemiBold" !important;
+}
+
+.container .selector {
+  flex: 1 1 40%;
+}
+
+.selector .title {
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 41px;
+}
+
+.selector .description {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.container .translation {
+  flex: 1 1 50%;
+}
+
+.translation .title {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 27px;
+}
+
+.translation .description {
+  font-size: 16px;
+  line-height: 22px;
+}

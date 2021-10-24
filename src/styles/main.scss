@@ -1,0 +1,121 @@
+$breakpoint-tablet: 960px;
+$breakpoint-mobile: 600px;
+
+@font-face {
+  font-family: "Nunito-Bold";
+  src: local("Nunito-Bold"),
+    url(https://images.smartbuyer.me/content/Nunito-Bold.ttf) format("trueType");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito-Regular";
+  src: local("Nunito-Regular"),
+    url(https://images.smartbuyer.me/content/Nunito-Regular.ttf) format("trueType");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito-SemiBold";
+  src: local("Nunito-SemiBold"),
+    url(https://images.smartbuyer.me/content/Nunito-SemiBold.ttf) format("trueType");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Nunito-ExtraLight";
+  src: local("Nunito-ExtraLight"),
+    url(https://images.smartbuyer.me/content/Nunito-ExtraLight.ttf) format("trueType");
+  font-display: swap;
+}
+
+.default-layout {
+  padding-top: 20px;
+  background-color: #f9f9f9;
+  min-width: 360px;
+  min-height: 100vh;
+}
+
+.blank-layout {
+  top: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+h2 {
+  font-family: "Nunito-Bold" !important;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 30px !important;
+  }
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    font-size: 25px !important;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 20px !important;
+  }
+}
+
+.nunito-bold {
+  font-family: "Nunito-Bold" !important;
+}
+
+.nunito-semibold {
+  font-family: "Nunito-SemiBold" !important;
+}
+
+.nunito-regular {
+  font-family: "Nunito-Regular" !important;
+}
+
+.products-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: hidden;
+
+  
+  @media (min-width: $breakpoint-tablet) {
+    height: 340px;
+  }
+  @media (max-width: $breakpoint-tablet) and (min-width: $breakpoint-mobile) {
+    height: 310px;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    height: 270px;
+  }
+}
+
+.brands-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: hidden;
+
+  @media (min-width: $breakpoint-tablet) {
+    height: 240px;
+  }
+  @media (max-width: $breakpoint-tablet) and (min-width: $breakpoint-mobile) {
+    height: 195px;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    height: 155px;
+  }
+}
+
+.carousel .slide {
+  background: none;
+}
+
+.banner-link{
+  display: block;
+}
+
+.MuiTabScrollButton-root.Mui-disabled {
+  opacity: 0.5 !important;
+}
+
+hr {
+  opacity: 0.5;
+}

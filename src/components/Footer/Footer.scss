@@ -1,0 +1,26 @@
+.footer {
+  background-color: #ededed;
+  margin-top: 20px;
+  font-size: 80%;
+}
+
+.footer__section {
+  margin: 0;
+  padding: 1em;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__section li {
+  list-style-type: none;
+  display: block;
+}
+
+.footer__section li + li {
+  margin-left: 10px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: black;
+}

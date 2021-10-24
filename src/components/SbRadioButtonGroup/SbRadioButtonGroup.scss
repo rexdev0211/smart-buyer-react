@@ -1,0 +1,11 @@
+@import "../../styles/main.scss";
+
+.group-title {
+  font-family: "Nunito-SemiBold" !important;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 20px !important;
+  }
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 17px !important;
+  }
+}

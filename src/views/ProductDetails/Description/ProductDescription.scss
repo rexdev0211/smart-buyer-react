@@ -1,0 +1,118 @@
+@import "~react-image-gallery/styles/scss/image-gallery.scss";
+@import "../../../styles/main.scss";
+
+.desc-container {
+  box-shadow: none;
+  margin-left: 60px;
+}
+
+.desc-title {
+  font-family: "Nunito-Bold" !important;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 36px !important;
+  }
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 25px !important;
+  }
+}
+
+.sub-title {
+  font-family: "Nunito-Bold" !important;
+  color: #c6211b;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 30px !important;
+  }
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 20px !important;
+  }
+}
+
+.category-title {
+  font-family: "Nunito-SemiBold" !important;
+  @media (min-width: $breakpoint-tablet) {
+    font-size: 20px !important;
+  }
+  @media (max-width: $breakpoint-tablet) {
+    font-size: 16px !important;
+  }
+}
+
+.category-body {
+  font-family: "Nunito-Regular" !important;
+  font-size: 14px !important;
+}
+
+.ratings {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+div.image-gallery-slides {
+  @media (min-width: $breakpoint-mobile) {
+
+    right: 0px;
+    overflow: hidden;
+  }
+  @media (min-width: $breakpoint-mobile) {
+
+    right: 30px;
+    overflow: hidden;
+  }
+}
+
+.image-gallery-slide img {
+  @media (min-width: $breakpoint-tablet) {
+    width: 500px !important;
+    height: 100% !important;
+  }
+}
+
+.main {
+  @media (min-width: $breakpoint-tablet) {
+    padding: 65px;
+    display: flex;
+  }
+  @media (max-width: $breakpoint-tablet) {
+    padding: 20px;
+  }
+}
+
+.social-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.social-group {
+  display: flex;
+  margin-top: 50px;
+}
+
+.image-gallery-slide img {
+  @media (min-width: $breakpoint-mobile) {
+    width: 400px !important;
+    height: 450px !important;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    width: 400px !important;
+    height: 300px !important;
+  }
+}
+
+.image-gallery-thumbnail img {
+  @media (min-width: $breakpoint-mobile) {
+    width: 90px !important;
+    height: 100px !important;
+    object-fit: contain;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    width: 65px !important;
+    height: 65px !important;
+    object-fit: contain;
+  }
+}

@@ -1,0 +1,16 @@
+#!/bin/sh -e
+
+FILTER="${1:-*}"
+echo "Filtering files by $FILTER"
+
+GREP="${2}"
+echo "Filtering by test: \"$GREP\""
+
+# npm link chai pmock chai-subset aws-sdk-mock chai-uuid mock-require supertest mocha --silent
+
+if [[ -z "$GREP" ]]
+then
+  react-scripts test
+else
+  react-scripts test
+fi

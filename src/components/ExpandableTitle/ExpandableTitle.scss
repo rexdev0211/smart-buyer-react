@@ -1,0 +1,37 @@
+@import "../../styles/main.scss";
+
+.expandable-title {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+
+  .home-title {
+    font-family: "Nunito-Bold";
+
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 30px;
+    }
+    @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+      font-size: 24px;
+    }
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 18px;
+    }
+  }
+
+  .link {
+    font-family: "Nunito-SemiBold";
+    color: #d62d20;
+    text-decoration: unset;
+
+    @media (min-width: $breakpoint-tablet) {
+      font-size: 20px;
+    }
+    @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+      font-size: 18px;
+    }
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 14px;
+    }
+  }
+}

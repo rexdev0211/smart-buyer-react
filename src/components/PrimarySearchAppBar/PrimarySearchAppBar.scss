@@ -1,0 +1,40 @@
+@import "../../styles/main.scss";
+
+.logo {
+  padding: 5px 10px;
+  vertical-align: middle;
+  @media (min-width: $breakpoint-tablet) {
+    width: 92px;
+    height: 62px;
+  }
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    width: 70px;
+    height: 48px;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    width: 52px;
+    height: 38px;
+    padding: 0;
+  }
+}
+
+.avatar {
+  text-align: center;
+  padding: 20px 50px;
+}
+
+.title {
+  font-family: "Nunito-Bold" !important;
+  font-size: 18px !important;
+}
+
+.subtitle {
+  font-family: "Nunito-Regular" !important;
+  font-size: 14px !important;
+}
+
+.link {
+  font-family: "Nunito-SemiBold";
+  color: unset;
+  text-decoration: unset;
+}

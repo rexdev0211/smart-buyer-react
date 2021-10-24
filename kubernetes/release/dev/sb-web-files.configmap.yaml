@@ -1,0 +1,16 @@
+apiVersion: v1
+data:
+  nginx.conf: |
+    server {
+      listen 80;
+      root /var/www/;
+      #  server_name [your.domain.com] [your other domain if you want to];
+      index index.html;
+      location / {
+        try_files $uri /index.html =404;
+      }
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: sb-web-files

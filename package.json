@@ -1,0 +1,65 @@
+{
+  "name": "sb-web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "@react-keycloak/web": "^3.4.0",
+    "i18next": "^19.8.7",
+    "i18next-http-backend": "^1.1.0",
+    "js-cookie": "^2.2.1",
+    "keycloak-js": "^15.0.2",
+    "micro-graphql-react": "^0.4.0-rc.3",
+    "node-sass": "^4.14.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-ga": "^3.3.0",
+    "react-helmet": "^6.1.0",
+    "react-i18next": "^11.8.6",
+    "react-image-gallery": "^1.0.8",
+    "react-responsive-carousel": "^3.2.9",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "^4.0.3",
+    "react-share": "^4.3.1",
+    "recursive-diff": "^1.0.8"
+  },
+  "devDependencies": {
+    "puppeteer": "^9.1.0",
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^13.1.8",
+    "jest-puppeteer": "^5.0.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./src/tests/setupTests.js"
+    ],
+    "preset": "jest-puppeteer"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build && node scripts/addPreloads.js",
+    "test": "jest --detectOpenHandles",
+    "eject": "react-scripts eject",
+    "flow": "flow"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

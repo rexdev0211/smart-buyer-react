@@ -1,0 +1,79 @@
+@import "../../styles/main.scss";
+
+.mid-container {
+  margin-top: 25px;
+}
+
+.color-widget {
+  flex: 1 1 40%;
+  padding: 65px 45px;
+}
+
+.stores-widget {
+  @media (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+    margin-top: 20px;
+  }
+}
+
+.image-gallery-thumbnails {
+  width: 400px;
+  @media (max-width: $breakpoint-tablet) {
+    width: auto;
+  }
+}
+
+.image-gallery-content .image-gallery-slide .image-gallery-image {
+  @media (max-width: $breakpoint-mobile) {
+    position: relative;
+    right: 25px;
+  }
+}
+
+.image-gallery-slide.right, .image-gallery-slide.left {
+  @media (max-width: $breakpoint-mobile) {
+    display: none;
+  }
+}
+
+.stores-wrapper {
+  max-height: 900px;
+  overflow: auto;
+
+  @media (min-width: $breakpoint-mobile) {
+    padding: 20px 43px;
+  }
+  @media (max-width: $breakpoint-mobile) {
+    padding: 15px 10px;
+  }
+
+  .wrapper-title {
+    text-align: left;
+    @media (min-width: $breakpoint-mobile) {
+      font-family: "Nunito-Bold" !important;
+      font-size: 25px !important;
+    }
+    @media (max-width: $breakpoint-mobile) {
+      font-family: "Nunito-SemiBold" !important;
+      font-size: 14px !important;
+    }
+  }
+}
+
+th.data-title {
+  width: 200px;
+  font-family: "Nunito-SemiBold" !important;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: 16px !important;
+  }
+}
+
+td.data-value {
+  text-align: left;
+  font-family: "Nunito-Regular" !important;
+
+  @media (max-width: $breakpoint-mobile) {
+    text-align: right;
+    font-size: 14px !important;
+  }
+}

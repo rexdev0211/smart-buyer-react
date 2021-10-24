@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sb-web
+  labels:
+    app: sb-web
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  selector:
+    app: sb-web
+  type: ClusterIP
+  sessionAffinity: None

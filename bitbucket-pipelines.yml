@@ -1,0 +1,116 @@
+options:
+  max-time: 10
+
+pipelines:
+  default:
+    - step:
+        name: Test
+        image: smartbuyer/unittest:web.1.0
+        # services:
+        #   - sb-pg-tests
+        caches:
+          - node
+          # - apt
+        script:
+          # - apt-get update
+          # - apt-get -y install postgresql-client
+          # - ./bin/utilities/wait-for-it.sh -h sb-pg-tests -p 5432 -t 30
+          # - mv -f /node_modules ./
+          # - cp .env.dev .env
+          - npm install
+          - ./test
+
+  branches:
+    master:
+      - step:
+          name: Build
+          deployment: Production
+          image: smartbuyer/unittest:web.1.0
+          script:
+            - npm install
+            - export REACT_APP_BASE_URL=https://smartbuyer.me
+            - export REACT_APP_PRODUCTS_API_URL_OPEN=https://smartbuyer.me/api/products/
+            - export REACT_APP_PRODUCTS_API_URL_PRIVATE=https://smartbuyer.me/apip/products/
+            - export REACT_APP_PRODUCTS_REF_API_URL_OPEN=https://smartbuyer.me/api/ref/
+            - export REACT_APP_PRODUCTS_REF_API_URL_PRIVATE=https://smartbuyer.me/apip/ref/
+            - CI=false npm run build
+            - export IMAGE_NAME=registry.smartbuyer.me/$BITBUCKET_REPO_SLUG:$BITBUCKET_COMMIT
+            # build the Docker image (this will use the Dockerfile in the root of the repo)
+            - docker build -t $IMAGE_NAME -f ./prod.dockerfile .
+            # authenticate with the Docker Hub registry
+            - docker login registry.smartbuyer.me --username $DOCKER_USER --password $DOCKER_PASS
+            # push the new Docker image to the Docker registry
+            - docker push $IMAGE_NAME
+          services:
+            - docker
+          cache:
+            - node
+      - step:
+          name: Deploy
+          script:
+            - cd kubernetes
+            - ENV=prod
+            - mkdir -p release/${ENV}/deploy
+            - cp ${BITBUCKET_REPO_SLUG}.service.yaml release/${ENV}/deploy/
+            # Bitbucket is now letting us to chain pipelines yet
+            # Issue: https://community.atlassian.com/t5/Bitbucket-Pipelines-questions/Run-two-kubectl-commands-in-a-pipe-having-output-of-the-first/qaq-p/1694633#M4767
+            - cp release/${ENV}/${BITBUCKET_REPO_SLUG}-files.configmap.yaml release/${ENV}/deploy/
+            - sed -e "s/{{TAG}}/$BITBUCKET_COMMIT/g" -e "s/{{ENV}}/${ENV}/g" ${BITBUCKET_REPO_SLUG}.deployment.tpl.yaml > release/${ENV}/deploy/${BITBUCKET_REPO_SLUG}.deployment.yaml
+            - pipe: atlassian/kubectl-run:1.4.0
+              variables:
+                KUBE_CONFIG: $KUBECONFIG
+                KUBECTL_COMMAND: apply
+                RESOURCE_PATH: release/prod/deploy
+                KUBECTL_ARGS:
+                  - '--namespace=prod'
+    release/dev:
+      - step:
+          caches:
+            - node
+            - docker
+          name: Build
+          deployment: Development
+          image: smartbuyer/unittest:web.1.0
+          script:
+            - npm install
+            - export REACT_APP_BASE_URL=https://dev.smartbuyer.me
+            - export REACT_APP_PRODUCTS_API_URL_OPEN=https://dev.smartbuyer.me/api/products/
+            - export REACT_APP_PRODUCTS_API_URL_PRIVATE=https://dev.smartbuyer.me/apip/products/
+            - export REACT_APP_PRODUCTS_REF_API_URL_OPEN=https://dev.smartbuyer.me/api/ref/
+            - export REACT_APP_PRODUCTS_REF_API_URL_PRIVATE=https://dev.smartbuyer.me/apip/ref/
+            - CI=false npm run build
+            - export IMAGE_NAME=registry.smartbuyer.me/$BITBUCKET_REPO_SLUG:$BITBUCKET_COMMIT
+            # build the Docker image (this will use the Dockerfile in the root of the repo)
+            - docker build -t $IMAGE_NAME -f ./prod.dockerfile .
+            # authenticate with the Docker Hub registry
+            - docker login registry.smartbuyer.me --username $DOCKER_USER --password $DOCKER_PASS
+            # push the new Docker image to the Docker registry
+            - docker push $IMAGE_NAME
+          services:
+            - docker
+          cache:
+            - node
+      - step:
+          caches:
+            - docker
+          name: Deploy
+          script:
+            - cd kubernetes
+            - ENV=dev
+            - mkdir -p release/${ENV}/deploy
+            - cp ${BITBUCKET_REPO_SLUG}.service.yaml release/${ENV}/deploy/
+            # Bitbucket is now letting us to chain pipelines yet
+            # Issue: https://community.atlassian.com/t5/Bitbucket-Pipelines-questions/Run-two-kubectl-commands-in-a-pipe-having-output-of-the-first/qaq-p/1694633#M4767
+            - cp release/${ENV}/${BITBUCKET_REPO_SLUG}-files.configmap.yaml release/${ENV}/deploy/
+            - sed -e "s/{{TAG}}/$BITBUCKET_COMMIT/g" -e "s/{{ENV}}/${ENV}/g" ${BITBUCKET_REPO_SLUG}.deployment.tpl.yaml > release/${ENV}/deploy/${BITBUCKET_REPO_SLUG}.deployment.yaml
+            - pipe: atlassian/kubectl-run:1.4.0
+              variables:
+                KUBE_CONFIG: $KUBECONFIG
+                KUBECTL_COMMAND: apply
+                RESOURCE_PATH: release/dev/deploy
+                KUBECTL_ARGS:
+                  - '--namespace=dev'
+
+definitions:
+  caches:
+    apt: /var/cache/apt

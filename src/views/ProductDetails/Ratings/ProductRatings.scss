@@ -1,0 +1,19 @@
+.nunito-regular-min {
+  font-family: "Nunito-Regular" !important;
+  font-size: 12px !important;
+}
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.rating-circle {
+  color: black !important;
+  background-color: white !important;
+  border-style: solid;
+  border-width: thin;
+  padding: 20px;
+  margin: 20px;
+}
